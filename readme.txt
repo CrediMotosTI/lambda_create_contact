@@ -1,0 +1,1 @@
+dotnet lambda deploy-function cm_lambda_create_contact
