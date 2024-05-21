@@ -16,6 +16,6 @@
     <PackageReference Include="Amazon.Lambda.Serialization.SystemTextJson" Version="2.4.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BibliotecasCrediMotos\BibliotecasCrediMotos.csproj" />
+    <ProjectReference Include="..\services_library\BibliotecasCrediMotos.csproj" />
   </ItemGroup>
 </Project>
