@@ -67,6 +67,7 @@ public class Function
                 custom_attributes = new Custom_Attributes()
                 {
                     campaign_id = input.Campaña_ID,
+                    campaign_name ="Obtener Videos",
                     gender = input.Genero,
                     has_ine = false,
                     has_valid_ine = false,
@@ -98,6 +99,7 @@ public class Function
                 {
                     /*Ya tengo el ID del usuario de chatwoot*/
                     Console.WriteLine($"El contacto encontrado fue:{found_contact.payload[0].id}");
+                    cw_contact.custom_attributes.campaign_name = "Obtener Videos";
                     var cw_updated_contact = contacts_Service.CreateContact(cw_contact, found_contact.payload[0].id);
                     if (cw_updated_contact == null)
                     {

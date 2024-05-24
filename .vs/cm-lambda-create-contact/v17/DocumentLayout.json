@@ -3,11 +3,17 @@
   "WorkspaceRootPath": "C:\\GitRepos\\lambda_create_contact\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jalva\\source\\repos\\BibliotecasCrediMotos\\Services\\Chatwoot\\CW_Conversation_Service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{160577A8-536C-4F9F-A99B-0105980EFEF5}|..\\services_library\\BibliotecasCrediMotos.csproj|c:\\gitrepos\\services_library\\services\\chatwoot\\cw_conversation_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{47E8848D-8381-476E-BD48-560366E40A09}|cm-lambda-create-contact.csproj|c:\\gitrepos\\lambda_create_contact\\function.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{47E8848D-8381-476E-BD48-560366E40A09}|cm-lambda-create-contact.csproj|solutionrelative:function.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{160577A8-536C-4F9F-A99B-0105980EFEF5}|..\\services_library\\BibliotecasCrediMotos.csproj|c:\\gitrepos\\services_library\\services\\chatwoot\\cw_contacts_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jalva\\source\\repos\\BibliotecasCrediMotos\\Services\\Chatwoot\\CW_Conversation_Service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jalva\\source\\repos\\BibliotecasCrediMotos\\Services\\Chatwoot\\CW_Contacts_Service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -29,7 +35,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 250,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 15,
           "Children": [
             {
               "$type": "Bookmark",
@@ -89,7 +95,32 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CW_Contacts_Service.cs",
+              "DocumentMoniker": "C:\\GitRepos\\services_library\\Services\\Chatwoot\\CW_Contacts_Service.cs",
+              "RelativeDocumentMoniker": "..\\services_library\\Services\\Chatwoot\\CW_Contacts_Service.cs",
+              "ToolTip": "C:\\GitRepos\\services_library\\Services\\Chatwoot\\CW_Contacts_Service.cs",
+              "RelativeToolTip": "..\\services_library\\Services\\Chatwoot\\CW_Contacts_Service.cs",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAIwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T16:01:10.75Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CW_Conversation_Service.cs",
+              "DocumentMoniker": "C:\\GitRepos\\services_library\\Services\\Chatwoot\\CW_Conversation_Service.cs",
+              "RelativeDocumentMoniker": "..\\services_library\\Services\\Chatwoot\\CW_Conversation_Service.cs",
+              "ToolTip": "C:\\GitRepos\\services_library\\Services\\Chatwoot\\CW_Conversation_Service.cs",
+              "RelativeToolTip": "..\\services_library\\Services\\Chatwoot\\CW_Conversation_Service.cs",
+              "ViewState": "AQIAAE0AAAAAAAAAAAA9wGcAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T16:19:43.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "CW_Conversation_Service.cs",
               "DocumentMoniker": "C:\\Users\\jalva\\source\\repos\\BibliotecasCrediMotos\\Services\\Chatwoot\\CW_Conversation_Service.cs",
               "RelativeDocumentMoniker": "..\\..\\Users\\jalva\\source\\repos\\BibliotecasCrediMotos\\Services\\Chatwoot\\CW_Conversation_Service.cs",
@@ -97,12 +128,11 @@
               "RelativeToolTip": "..\\..\\Users\\jalva\\source\\repos\\BibliotecasCrediMotos\\Services\\Chatwoot\\CW_Conversation_Service.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAFUAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-14T22:51:33.403Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T22:51:33.403Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "CW_Contacts_Service.cs",
               "DocumentMoniker": "C:\\Users\\jalva\\source\\repos\\BibliotecasCrediMotos\\Services\\Chatwoot\\CW_Contacts_Service.cs",
               "RelativeDocumentMoniker": "..\\..\\Users\\jalva\\source\\repos\\BibliotecasCrediMotos\\Services\\Chatwoot\\CW_Contacts_Service.cs",
@@ -114,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "CW_Created_Contact.cs",
               "DocumentMoniker": "C:\\Users\\jalva\\source\\repos\\BibliotecasCrediMotos\\Models\\Chatwoot\\CW_Created_Contact.cs",
               "RelativeDocumentMoniker": "..\\..\\Users\\jalva\\source\\repos\\BibliotecasCrediMotos\\Models\\Chatwoot\\CW_Created_Contact.cs",
@@ -126,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "CRMSesion.cs",
               "DocumentMoniker": "C:\\Users\\jalva\\source\\repos\\BibliotecasCrediMotos\\Services\\CRM\\CRMSesion.cs",
               "RelativeDocumentMoniker": "..\\..\\Users\\jalva\\source\\repos\\BibliotecasCrediMotos\\Services\\CRM\\CRMSesion.cs",
@@ -138,7 +168,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
+              "Title": "Function.cs",
+              "DocumentMoniker": "C:\\GitRepos\\lambda_create_contact\\Function.cs",
+              "RelativeDocumentMoniker": "Function.cs",
+              "ToolTip": "C:\\GitRepos\\lambda_create_contact\\Function.cs",
+              "RelativeToolTip": "Function.cs",
+              "ViewState": "AQIAAG4AAAAAAAAAAAAwwIEAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T19:28:57.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "BibliotecasCrediMotos.csproj",
               "DocumentMoniker": "C:\\Users\\jalva\\source\\repos\\BibliotecasCrediMotos\\BibliotecasCrediMotos.csproj",
               "RelativeDocumentMoniker": "..\\..\\Users\\jalva\\source\\repos\\BibliotecasCrediMotos\\BibliotecasCrediMotos.csproj",
@@ -146,18 +189,6 @@
               "RelativeToolTip": "..\\..\\Users\\jalva\\source\\repos\\BibliotecasCrediMotos\\BibliotecasCrediMotos.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2024-04-30T23:51:42.49Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Function.cs",
-              "DocumentMoniker": "C:\\GitRepos\\lambda_create_contact\\Function.cs",
-              "RelativeDocumentMoniker": "Function.cs",
-              "ToolTip": "C:\\GitRepos\\lambda_create_contact\\Function.cs",
-              "RelativeToolTip": "Function.cs",
-              "ViewState": "AQIAAHYAAAAAAAAAAAAIwI8AAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T19:28:57.385Z"
             }
           ]
         }
