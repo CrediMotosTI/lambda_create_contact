@@ -2,14 +2,12 @@ using Amazon.Lambda.Core;
 using cm_lambda_create_contact.Models;
 using System.Threading.Tasks;
 using Amazon.Lambda.APIGatewayEvents;
-using BibliotecasCrediMotos.Services.CRM;
-using BibliotecasCrediMotos.Services.Chatwoot;
-using BibliotecasCrediMotos.Models.Chatwoot;
 using System.Numerics;
 using System.Text.Json;
 using Twilio.TwiML.Messaging;
 using Newtonsoft.Json;
-using BibliotecasCrediMotos.Models.CRM;
+using BibliotecaChatwoot.Services.Chatwoot;
+using BibliotecaChatwoot.Models.Chatwoot;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
@@ -47,108 +45,76 @@ public class Function
                 Body = "Telefono en formato incorrecto"
             };
         }
-        /*Revisar si existe el contacto*/
-        CRMSesion crm = new CRMSesion();
-        if (crm.GetContactByPhoneNumber(input.Telefono))
+        
+        /*Crear contacto*/
+        var cw_contact = new BibliotecaChatwoot.Models.Chatwoot.CW_NEW_CONTACT()
         {
-            return new APIGatewayProxyResponse
+            name = input.Nombre,
+            phone_number = $"+521{input.Telefono}",
+            custom_attributes = new Custom_Attributes()
             {
-                StatusCode = 400,
-                Body = "El telefono ya existe"
-            };
-        }
-        else
+                campaign_id = input.Campaña_ID,
+                cliente="Paciente",
+                es_prospecto=true,
+                interes_en= input.Campaña_ID,
+                recibe_ofertas=true
+            }
+        };
+        var contacts_Service = new CW_Contacts_Service();
+        var cw_new_contact = contacts_Service.CreateContact(cw_contact);
+        if (cw_new_contact == null)
         {
-            CW_Contacts_Service contacts_Service = new CW_Contacts_Service();
-            var cw_contact = new BibliotecasCrediMotos.Models.Chatwoot.CW_NEW_CONTACT()
+            Console.WriteLine($"No se pudo crear el contacto de chatwoot en el primer intento 84 tel:{input.Telefono}");
+            /*Como el contacto ya existe, lo vamos a atualizar*/
+            /*Obtener el ID del contacto*/
+            var found_contact = contacts_Service.SearchContact(input.Telefono);
+            if (found_contact == null)
             {
-                name = input.Nombre,
-                phone_number = $"+521{input.Telefono}",
-                custom_attributes = new Custom_Attributes()
+                return new APIGatewayProxyResponse
                 {
-                    campaign_id = input.Campaña_ID,
-                    campaign_name ="Obtener Videos",
-                    gender = input.Genero,
-                    has_ine = false,
-                    has_valid_ine = false,
-                    has_valid_video = false,
-                    has_video = false,
-                    ine_url = "",
-                    refered_by = input.Referencia,
-                    uuid = "",
-                    video_url = ""
-                }
-            };
-            var cw_new_contact = contacts_Service.CreateContact(cw_contact);
-            if (cw_new_contact == null)
+                    StatusCode = 400,
+                    Body = "Ocurrio un error en chatwoot 92"
+                };
+            }
+            else
             {
-                Console.WriteLine($"No se pudo crear el contacto de chatwoot en el primer intento 84 tel:{input.Telefono}");
-                /*Como el contacto ya existe, lo vamos a atualizar*/
-                /*Obtener el ID del contacto*/
-                var found_contact = contacts_Service.SearchContact(input.Telefono);
-
-                if (found_contact == null)
+                /*Ya tengo el ID del usuario de chatwoot*/
+                Console.WriteLine($"El contacto encontrado fue:{found_contact.payload.id}");
+                cw_contact.custom_attributes.campaign_name = "Obtener Videos";
+                var cw_updated_contact = contacts_Service.CreateContact(cw_contact, found_contact.payload.id);
+                if (cw_updated_contact == null)
                 {
                     return new APIGatewayProxyResponse
                     {
                         StatusCode = 400,
-                        Body = "Ocurrio un error en chatwoot 92"
+                        Body = "Ocurrio un error en chatwoot 104"
                     };
                 }
                 else
                 {
-                    /*Ya tengo el ID del usuario de chatwoot*/
-                    Console.WriteLine($"El contacto encontrado fue:{found_contact.payload[0].id}");
-                    cw_contact.custom_attributes.campaign_name = "Obtener Videos";
-                    var cw_updated_contact = contacts_Service.CreateContact(cw_contact, found_contact.payload[0].id);
-                    if (cw_updated_contact == null)
-                    {
-                        return new APIGatewayProxyResponse
-                        {
-                            StatusCode = 400,
-                            Body = "Ocurrio un error en chatwoot 104"
-                        };
-                    }
-                    else
-                    {
-                        /*Se actualizo en chatwoot*/
-                        /*Crearlo en CRM*/
-                        return CreateCRMContact(crm, cw_updated_contact, input);
-                    }
+                    /*Se actualizo en chatwoot*/
+                    /*Do nothing ya se actualizo*/
+                    return StartConversation(cw_updated_contact.payload.contact.id, input);
                 }
             }
-            else
-            {
-                /*Se creo con exito en chatwoot*/
-                Console.WriteLine("Se pudo crear el contacto de chatwoot en el primer intento 121");
-                /*Crearlo en CRM*/
-                return CreateCRMContact(crm, cw_new_contact, input);
-            }
-        }
-
-    }
-    private APIGatewayProxyResponse CreateCRMContact(CRMSesion crm, CW_Created_Contact NewContact, BasicContact input)
-    {
-        Console.WriteLine($"Contacto a crear: {JsonConvert.SerializeObject(NewContact)}");
-        var crm_contact = crm.CreateContact(NewContact);
-        if (!crm_contact)
-        {
-            return new APIGatewayProxyResponse
-            {
-                StatusCode = 400,
-                Body = "Error desconocido"
-            };
         }
         else
         {
-            /*Contacto creado exitosamente, falta iniciar la conversacion*/
-            CW_Conversation_Service conversation_Service = new CW_Conversation_Service();
-            conversation_Service.EnviarMensajeInicial(NewContact.payload.contact.id, input.Nombre);
-            return new APIGatewayProxyResponse
-            {
-                StatusCode = 200,
-                Body = "Conversacion creada"
-            };
-        }
+            /*Se creo con exito en chatwoot*/
+            Console.WriteLine("Se pudo crear el contacto de chatwoot en el primer intento 121");
+            /*Crearlo en CRM*/
+            return StartConversation(cw_new_contact.payload.contact.id, input);
+        }        
+
+    }
+    private APIGatewayProxyResponse StartConversation(int ContactID, BasicContact input)
+    {
+        CW_Conversation_Service conversation_Service = new CW_Conversation_Service();
+        conversation_Service.EnviarMensajeInicial(ContactID, input.Nombre);
+        return new APIGatewayProxyResponse
+        {
+            StatusCode = 200,
+            Body = "Conversacion creada"
+        };
     }
 }

@@ -14,8 +14,10 @@
     <PackageReference Include="Amazon.Lambda.APIGatewayEvents" Version="2.7.0" />
     <PackageReference Include="Amazon.Lambda.Core" Version="2.2.0" />
     <PackageReference Include="Amazon.Lambda.Serialization.SystemTextJson" Version="2.4.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Twilio" Version="7.3.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\services_library\BibliotecasCrediMotos.csproj" />
+    <ProjectReference Include="..\BibliotecaChatwoot\BibliotecaChatwoot\BibliotecaChatwoot\BibliotecaChatwoot.csproj" />
   </ItemGroup>
 </Project>

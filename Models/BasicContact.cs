@@ -10,7 +10,6 @@ namespace cm_lambda_create_contact.Models
     {
         public string Nombre { get; set; }
         public string Telefono { get; set; }
-        public string Genero { get; set; }
         public string Referencia { get; set; }
         public string Campaña_ID { get; set; }
     }

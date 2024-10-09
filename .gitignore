@@ -7,3 +7,5 @@ obj/
 .vs/cm-lambda-create-contact/FileContentIndex/
 
 .vs/ProjectEvaluation/
+/packages
+/.vs

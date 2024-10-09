@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cm-lambda-create-contact", "cm-lambda-create-contact.csproj", "{47E8848D-8381-476E-BD48-560366E40A09}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibliotecasCrediMotos", "..\services_library\BibliotecasCrediMotos.csproj", "{160577A8-536C-4F9F-A99B-0105980EFEF5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaChatwoot", "..\BibliotecaChatwoot\BibliotecaChatwoot\BibliotecaChatwoot\BibliotecaChatwoot.csproj", "{0D375307-BD4A-4B97-A7CB-5321AEE84883}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{47E8848D-8381-476E-BD48-560366E40A09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47E8848D-8381-476E-BD48-560366E40A09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47E8848D-8381-476E-BD48-560366E40A09}.Release|Any CPU.Build.0 = Release|Any CPU
-		{160577A8-536C-4F9F-A99B-0105980EFEF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{160577A8-536C-4F9F-A99B-0105980EFEF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{160577A8-536C-4F9F-A99B-0105980EFEF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{160577A8-536C-4F9F-A99B-0105980EFEF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D375307-BD4A-4B97-A7CB-5321AEE84883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D375307-BD4A-4B97-A7CB-5321AEE84883}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D375307-BD4A-4B97-A7CB-5321AEE84883}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D375307-BD4A-4B97-A7CB-5321AEE84883}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
